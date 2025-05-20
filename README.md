@@ -47,12 +47,12 @@ src/
 
 The `demo_working` directory contains demonstration files and screenshots showcasing the application's functionality:
 
-- `Screen Recording 2025-05-20 at 12.mp4` - Video demonstration of the API in action
-- `Response: 429.png` - Screenshot showing rate limit exceeded response (HTTP 429)
-- `Response: 200.png` - Screenshot showing successful API response (HTTP 200)
-- `RabbitMQ_dashboard.png` - Screenshot of RabbitMQ management dashboard
-- `redis-cli.png` - Screenshot showing Redis CLI operations
-- `rabbitmq-cli.png` - Screenshot demonstrating RabbitMQ CLI commands
+- [`Screen Recording 2025-05-20 at 12.mp4`](./demo_working/Screen%20Recording%202025-05-20%20at%2012.mp4) - Video demonstration of the API in action
+- [`Response: 429.png`](./demo_working/Response:%20429.png) - Screenshot showing rate limit exceeded response (HTTP 429)
+- [`Response: 200.png`](./demo_working/Response:%20200.png) - Screenshot showing successful API response (HTTP 200)
+- [`RabbitMQ_dashboard.png`](./demo_working/RabbitMQ_dashboard.png) - Screenshot of RabbitMQ management dashboard
+- [`redis-cli.png`](./demo_working/redis-cli.png) - Screenshot showing Redis CLI operations
+- [`rabbitmq-cli.png`](./demo_working/rabbitmq-cli.png) - Screenshot demonstrating RabbitMQ CLI commands
 
 ## Contributing
 
