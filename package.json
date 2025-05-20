@@ -1,0 +1,20 @@
+{
+  "name": "rate-limiter",
+  "version": "1.0.0",
+  "main": "src/app.js",
+  "scripts": {
+    "start": "node src/app.js",
+    "dev": "nodemon src/app.js",
+    "analyze": "node src/analyzeRateLimits.js"
+  },
+  "dependencies": {
+    "amqplib": "^0.10.0",
+    "express": "^4.18.2",
+    "ioredis": "^5.3.2",
+    "joi": "^17.9.2",
+    "winston": "^3.10.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.1"
+  }
+}
