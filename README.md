@@ -1,13 +1,11 @@
 # E-Commerce API
 
-A RESTful API service built with Node.js and Express for managing products and orders, featuring a robust rate limiter middleware that prevents API abuse by limiting requests per user based on IP or token, with Redis for efficient tracking and RabbitMQ for real-time analytics of request patterns.
+A RESTful API service built with Node.js and Express for managing products and orders, featuring a robust rate limiter middleware that prevents API abuse by limiting requests per user based on IP , with Redis for efficient tracking and RabbitMQ for real-time analytics of request patterns.
 
 ## Features
 
 - 🚀 **Rate Limiting**: Intelligent request throttling based on IP/token
 - 📊 **Real-time Analytics**: Request pattern analysis using RabbitMQ
-- 🔒 **Security**: Built-in protection against API abuse
-- 📈 **Scalability**: Microservices architecture for better performance
 - 🔍 **Monitoring**: Comprehensive logging and tracking system
 
 ## Problem Statement
@@ -54,16 +52,12 @@ src/
 ### Products
 
 - `GET /api/products` - Get all products
-  - Supports pagination with `?page` and `?limit`
-  - Filter by category with `?category`
-  - Sort by price with `?sort=price`
+
 
 ### Orders
 
 - `GET /api/orders` - Get all orders
-  - Filter by status with `?status`
-  - Filter by date range with `?start` and `?end`
-  - Include product details with `?include=products`
+
 
 ## Demo Files
 
