@@ -2,12 +2,20 @@
 
 A RESTful API service built with Node.js and Express for managing products and orders, featuring a robust rate limiter middleware that prevents API abuse by limiting requests per user based on IP or token, with Redis for efficient tracking and RabbitMQ for real-time analytics of request patterns.
 
+## Features
+
+- 🚀 **Rate Limiting**: Intelligent request throttling based on IP/token
+- 📊 **Real-time Analytics**: Request pattern analysis using RabbitMQ
+- 🔒 **Security**: Built-in protection against API abuse
+- 📈 **Scalability**: Microservices architecture for better performance
+- 🔍 **Monitoring**: Comprehensive logging and tracking system
+
 ## Problem Statement
 See the [problem statement](problem-statement.md) for details on the rate limiter implementation requirements.
 
-
 ## Tech Stack
-This project is built with the following technologies:
+
+This project leverages modern technologies for robust performance:
 
 - **Node.js** - JavaScript runtime environment
 - **Express.js** - Web application framework for Node.js
@@ -17,42 +25,74 @@ This project is built with the following technologies:
 - **Docker** - Containerization for consistent development and deployment
 - **Analyzer Service** - Dedicated microservice that consumes messages from RabbitMQ to analyze request patterns, detect potential abuse, and generate insights on API usage
 
-
-
 ## Project Structure 
 
+```
 src/
-├── app.js # Main application file
-├── config # Configuration files
-├── controllers # Controller files
-├── middleware # Middleware files
-├── models # Model files
-├── routes # Route files
-├── schemas # Schema files
-├── services # Service files
-├── utils # Utility files
+├── app.js                 # Main application entry point
+├── config/               # Configuration files
+│   ├── redis.js         # Redis configuration
+│   ├── rabbitmq.js      # RabbitMQ configuration
+│   └── winston.js       # Logging configuration
+├── controllers/         # Request handlers
+│   ├── products.js     # Product-related controllers
+│   └── orders.js       # Order-related controllers
+├── middleware/         # Custom middleware functions
+│   ├── rateLimiter.js # Rate limiting implementation
+│   └── auth.js        # Authentication middleware
+├── models/            # Data models
+├── routes/           # API route definitions
+├── schemas/          # Data validation schemas
+├── services/         # Business logic layer
+│   ├── analyzer.js  # Request pattern analysis
+│   └── metrics.js   # Performance metrics
+└── utils/           # Helper functions and utilities
+```
 
 ## API Endpoints
 
 ### Products
 
 - `GET /api/products` - Get all products
+  - Supports pagination with `?page` and `?limit`
+  - Filter by category with `?category`
+  - Sort by price with `?sort=price`
 
 ### Orders
 
 - `GET /api/orders` - Get all orders
-
+  - Filter by status with `?status`
+  - Filter by date range with `?start` and `?end`
+  - Include product details with `?include=products`
 
 ## Demo Files
 
-The `demo_working` directory contains demonstration files and screenshots showcasing the application's functionality:
+The `demo_working` directory contains comprehensive demonstrations of the application's functionality:
 
-- [`Screen Recording 2025-05-20 at 12.mp4`](./demo_working/Screen%20Recording%202025-05-20%20at%2012.mp4) - Video demonstration of the API in action
-- [`Response: 429.png`](./demo_working/Response:%20429.png) - Screenshot showing rate limit exceeded response (HTTP 429)
-- [`Response: 200.png`](./demo_working/Response:%20200.png) - Screenshot showing successful API response (HTTP 200)
-- [`RabbitMQ_dashboard.png`](./demo_working/RabbitMQ_dashboard.png) - Screenshot of RabbitMQ management dashboard
-- [`redis-cli.png`](./demo_working/redis-cli.png) - Screenshot showing Redis CLI operations
-- [`rabbitmq-cli.png`](./demo_working/rabbitmq-cli.png) - Screenshot demonstrating RabbitMQ CLI commands
+### API Response Screenshots
+- [`Response: 200.png`](./demo_working/Response:%20200.png) - Successful API response demonstrating proper data retrieval
+- [`Response: 429.png`](./demo_working/Response:%20429.png) - Rate limit exceeded response showing the API's protection mechanism
+
+### Infrastructure Monitoring
+- [`RabbitMQ_dashboard.png`](./demo_working/RabbitMQ_dashboard.png) - RabbitMQ management interface showing:
+  - Queue metrics
+  - Message throughput
+  - Exchange bindings
+- [`redis-cli.png`](./demo_working/redis-cli.png) - Redis CLI operations showcasing:
+  - Rate limit counters
+  - Cache operations
+  - Key expiration
+- [`rabbitmq-cli.png`](./demo_working/rabbitmq-cli.png) - RabbitMQ CLI commands demonstrating:
+  - Queue management
+  - Message handling
+  - System status
+
+### Video Demonstration
+- [`Screen Recording 2025-05-20 at 12.mp4`](./demo_working/Screen%20Recording%202025-05-20%20at%2012.mp4) - Comprehensive video walkthrough showing:
+  - API endpoints in action
+  - Rate limiting behavior
+  - Real-time analytics
+  - System monitoring
 
 ## Contributing
 
@@ -61,7 +101,6 @@ The `demo_working` directory contains demonstration files and screenshots showca
 3. Commit your changes (`git commit -m 'Add some amazing feature'`)
 4. Push to the branch (`git push origin feature/amazing-feature`)
 5. Open a Pull Request
-
 
 ## Getting Started
 
@@ -77,7 +116,6 @@ git clone <repository-url>
 
 2. Install dependencies:
 npm install
-
 
 ## Development Tools
 
